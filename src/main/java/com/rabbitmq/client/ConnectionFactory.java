@@ -309,7 +309,7 @@ public class ConnectionFactory implements Cloneable {
             setPort(DEFAULT_AMQP_OVER_SSL_PORT);
             // SSL context factory not set yet, we use the default one
             if (this.sslContextFactory == null) {
-                useSslProtocol();
+                useSslProtocol(SSLContext.getDefault());
             }
         } else {
             throw new IllegalArgumentException("Wrong scheme in AMQP URI: " +
